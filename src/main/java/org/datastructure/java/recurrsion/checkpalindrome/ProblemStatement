@@ -1,0 +1,32 @@
+Check Palindrome (recursive)
+
+Check whether a given String S is a palindrome using recursion. Return true or false.
+
+    Input format :
+        String S
+
+    Output Format :
+        'true' or 'false'
+
+    Constraints :
+        0 <= |S| <= 1000
+        where |S| represents length of string S.
+
+    Sample Input 1 :
+        racecar
+    Sample Output 1 :
+        true
+
+    Sample Input 2 :
+        techma
+    Sample Output 2 :
+        false
+
+
+Using Recurrsion which Involves the basic principle of PMI (Principle of Mathematical Induction)
+
+LINKS to study for PMI:
+https://byjus.com/maths/principle-of-mathematical-induction-learn-examples/
+
+
+

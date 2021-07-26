@@ -1,0 +1,8 @@
+INPUT :
+----------
+aabccbaa
+
+OUTPUT :
+-----------
+abcba
+

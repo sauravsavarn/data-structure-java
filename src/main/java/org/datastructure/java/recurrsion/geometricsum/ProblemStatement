@@ -1,0 +1,32 @@
+Geometric Sum
+
+Given k, find the geometric sum using recursion i.e.
+    1 + 1/2 + 1/4 + 1/8 + ... + 1/(2^k)
+
+    Input format :
+        Integer k
+
+    Output Format :
+        Geometric sum (upto 5 decimal places)
+
+    Constraints :
+        0 <= k <= 1000
+
+    Sample Input 1 :
+        3
+    Sample Output 1 :
+        1.87500
+
+    Sample Input 2 :
+        4
+    Sample Output 2 :
+        1.93750
+
+
+Using Recurrsion which Involves the basic principle of PMI (Principle of Mathematical Induction)
+
+LINKS to study for PMI:
+https://byjus.com/maths/principle-of-mathematical-induction-learn-examples/
+
+
+

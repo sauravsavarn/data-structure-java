@@ -1,0 +1,15 @@
+INPUT :
+----------
+3
+
+OUTPUT :
+-----------
+a c
+a b
+c b
+a c
+b a
+b c
+a c
+
+

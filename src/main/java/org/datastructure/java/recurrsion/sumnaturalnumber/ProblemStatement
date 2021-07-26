@@ -1,0 +1,10 @@
+Sum of N Natural Numbers
+σn = ( n * (n+1) ) / 2;
+
+Now calculate ∑n using Recurrsion which Involves the basic principle of PMI (Principle of Mathematical Induction)
+
+LINKS to study for PMI:
+https://byjus.com/maths/principle-of-mathematical-induction-learn-examples/
+
+
+
