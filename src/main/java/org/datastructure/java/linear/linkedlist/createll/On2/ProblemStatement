@@ -1,0 +1,7 @@
+Create a LinkedList
+
+For sake of simplicity create a LinkedList.
+
+In this example create LinkedList untill enter -1 as input.
+
+NOTE: here there is no any consideration of tail Node.
