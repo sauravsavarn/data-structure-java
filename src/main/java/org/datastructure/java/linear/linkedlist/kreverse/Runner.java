@@ -1,4 +1,4 @@
-package org.datastructure.java.linear.linkedlist.merge2sortedll;
+package org.datastructure.java.linear.linkedlist.kreverse;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -55,11 +55,10 @@ public class Runner {
 
         while (t > 0) {
 
-            LinkedListNode<Integer> head1 = takeInput();
-            LinkedListNode<Integer> head2 = takeInput();
+            LinkedListNode<Integer> head = takeInput();
+            int k = Integer.parseInt(br.readLine().trim());
 
-            //LinkedListNode<Integer> newHead = Solution1.mergeTwoSortedLinkedLists(head1, head2);
-            LinkedListNode<Integer> newHead = Solution2.mergeTwoSortedLinkedLists(head1, head2);
+            LinkedListNode<Integer> newHead = Solution.kReverse(head, k);
             print(newHead);
 
             t -= 1;

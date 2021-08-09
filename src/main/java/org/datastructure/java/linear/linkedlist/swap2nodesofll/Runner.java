@@ -1,4 +1,5 @@
-package org.datastructure.java.linear.linkedlist.findNodeInll;
+package org.datastructure.java.linear.linkedlist.swap2nodesofll;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,14 +34,13 @@ public class Runner {
                 tail.next = newNode;
                 tail = newNode;
             }
-
             i += 1;
         }
 
         return head;
     }
 
-    public static void print(LinkedListNode<Integer> head) {
+    public static void print(LinkedListNode<Integer> head){
         while(head != null) {
             System.out.print(head.data + " ");
             head = head.next;
@@ -50,14 +50,21 @@ public class Runner {
     }
 
     public static void main(String[] args) throws NumberFormatException, IOException {
+
         int t = Integer.parseInt(br.readLine().trim());
 
         while (t > 0) {
 
             LinkedListNode<Integer> head = takeInput();
-            int n = Integer.parseInt(br.readLine().trim());
+            String[] i_j = br.readLine().trim().split("\\s");
 
-            System.out.println(Solution.findNode(head, n));
+            int i = Integer.parseInt(i_j[0]);
+            int j = Integer.parseInt(i_j[1]);
+
+            //LinkedListNode<Integer> newHead = Solution1.swapNodes(head, i, j);////recursive way
+            //LinkedListNode<Integer> newHead = Solution2.swapNodes(head, i, j);////recursive way
+            LinkedListNode<Integer> newHead = Solution3.swapNodes(head, i, j);////iterative-way
+            print(newHead);
 
             t -= 1;
         }

@@ -1,4 +1,4 @@
-package org.datastructure.java.linear.linkedlist.merge2sortedll;
+package org.datastructure.java.linear.linkedlist.mergesortll;
 
 /*
 
@@ -14,8 +14,41 @@ package org.datastructure.java.linear.linkedlist.merge2sortedll;
     }
 
 */
+//////Solution1 has errors and needs to re-work
+public class Solution1 {
 
-public class Solution {
+    public static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> head) {
+        if(head==null || head.next == null)
+            return head;
+
+        //////find the mid-point of the LinkedList
+        LinkedListNode<Integer> lHalf = mergeSort(midPoint(head, 0));
+        LinkedListNode<Integer> rHalf = mergeSort(midPoint(head, 1));
+        return mergeTwoSortedLinkedLists(lHalf, rHalf);
+    }
+
+    private static LinkedListNode<Integer> midPoint(LinkedListNode<Integer> head, int pos) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        LinkedListNode<Integer> slow = head;
+        LinkedListNode<Integer> sHead = slow;
+        LinkedListNode<Integer> fast = head.next;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        if(pos==0) {
+            LinkedListNode<Integer> temp = slow;
+            slow=slow.next;
+            //temp.next=null;
+            temp=null;
+            return  sHead;
+        } else
+            return slow=slow.next;
+    }
 
     public static LinkedListNode<Integer> mergeTwoSortedLinkedLists(LinkedListNode<Integer> head1, LinkedListNode<Integer> head2) {
 
@@ -77,5 +110,4 @@ public class Solution {
         /* ** ** */
         return lHead;
     }
-
 }

@@ -1,4 +1,4 @@
-package org.datastructure.java.linear.linkedlist.merge2sortedll;
+package org.datastructure.java.linear.linkedlist.deleteeveryNnodes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -55,11 +55,13 @@ public class Runner {
 
         while (t > 0) {
 
-            LinkedListNode<Integer> head1 = takeInput();
-            LinkedListNode<Integer> head2 = takeInput();
+            LinkedListNode<Integer> head = takeInput();
+            String[] m_n = br.readLine().trim().split("\\s");
 
-            //LinkedListNode<Integer> newHead = Solution1.mergeTwoSortedLinkedLists(head1, head2);
-            LinkedListNode<Integer> newHead = Solution2.mergeTwoSortedLinkedLists(head1, head2);
+            int m = Integer.parseInt(m_n[0]);
+            int n = Integer.parseInt(m_n[1]);
+
+            LinkedListNode<Integer> newHead = Solution.skipMdeleteN(head, m, n);
             print(newHead);
 
             t -= 1;

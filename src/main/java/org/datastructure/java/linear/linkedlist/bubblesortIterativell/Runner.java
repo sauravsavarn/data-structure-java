@@ -1,4 +1,5 @@
-package org.datastructure.java.linear.linkedlist.merge2sortedll;
+package org.datastructure.java.linear.linkedlist.bubblesortIterativell;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,20 +51,9 @@ public class Runner {
     }
 
     public static void main(String[] args) throws NumberFormatException, IOException {
+        LinkedListNode<Integer> head = takeInput();
 
-        int t = Integer.parseInt(br.readLine().trim());
-
-        while (t > 0) {
-
-            LinkedListNode<Integer> head1 = takeInput();
-            LinkedListNode<Integer> head2 = takeInput();
-
-            //LinkedListNode<Integer> newHead = Solution1.mergeTwoSortedLinkedLists(head1, head2);
-            LinkedListNode<Integer> newHead = Solution2.mergeTwoSortedLinkedLists(head1, head2);
-            print(newHead);
-
-            t -= 1;
-        }
-
+        head = Solution.bubbleSort(head);
+        print(head);
     }
 }

@@ -1,4 +1,4 @@
-package org.datastructure.java.linear.linkedlist.findNodeInll;
+package org.datastructure.java.linear.linkedlist.findNodeInll.usingiterativeway;
 
 /****************************************************************
 
@@ -15,7 +15,7 @@ package org.datastructure.java.linear.linkedlist.findNodeInll;
 
  *****************************************************************/
 
-public class Solution {
+public class Solution1 {
     public static int findNode(LinkedListNode<Integer> head, int n) {
         if(head==null)
             return -1;

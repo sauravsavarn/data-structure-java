@@ -1,4 +1,5 @@
-package org.datastructure.java.linear.linkedlist.merge2sortedll;
+package org.datastructure.java.linear.linkedlist.findNodeInll.usingiterativeway;
+import org.datastructure.java.linear.linkedlist.findNodeInll.usingiterativeway.Solution1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,13 +35,14 @@ public class Runner {
                 tail.next = newNode;
                 tail = newNode;
             }
+
             i += 1;
         }
 
         return head;
     }
 
-    public static void print(LinkedListNode<Integer> head){
+    public static void print(LinkedListNode<Integer> head) {
         while(head != null) {
             System.out.print(head.data + " ");
             head = head.next;
@@ -50,17 +52,14 @@ public class Runner {
     }
 
     public static void main(String[] args) throws NumberFormatException, IOException {
-
         int t = Integer.parseInt(br.readLine().trim());
 
         while (t > 0) {
 
-            LinkedListNode<Integer> head1 = takeInput();
-            LinkedListNode<Integer> head2 = takeInput();
+            LinkedListNode<Integer> head = takeInput();
+            int n = Integer.parseInt(br.readLine().trim());
 
-            //LinkedListNode<Integer> newHead = Solution1.mergeTwoSortedLinkedLists(head1, head2);
-            LinkedListNode<Integer> newHead = Solution2.mergeTwoSortedLinkedLists(head1, head2);
-            print(newHead);
+            System.out.println(Solution1.findNode(head, n));
 
             t -= 1;
         }
