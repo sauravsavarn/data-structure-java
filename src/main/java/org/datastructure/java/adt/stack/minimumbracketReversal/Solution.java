@@ -5,87 +5,51 @@ import java.util.Stack;
 
 public class Solution {
     static Stack<Character> stack = new Stack<>();
-    static Stack<Character> tempStack = new Stack<>();
     static int counterBracketRev = 0;
 
     public static int countBracketReversals(String input) {
-        //Your code goes here
-        countReverse(input);
 
-        ///////analyse both the stack
-        while (!stack.isEmpty()) {
-            if (tempStack.isEmpty()) {
 
-                if (stack.size() % 2 == 0) {
-                    if (stack.pop() == stack.peek()) {
+        for (int i = 0; i < input.length(); i++) {
+            char character = input.charAt(i);
+
+            if (character == '(' || character == '{') stack.push(character);
+            else if (character == ')' || character == '}') {
+                ////peek stack and check top of Stack for any braces like '{' or '(', if found then remove else untouched.
+                if(stack.size()!=0) {
+                    if (stack.peek() == '(' || stack.peek() == '{') {
                         stack.pop();
-                        counterBracketRev++;
                     } else {
-                        counterBracketRev++;
-                        stack.pop();
-                        counterBracketRev++;
+                        stack.push(character);
                     }
                 } else {
-                    counterBracketRev = -1;
-                    break;
+                    stack.push(character);
+                }
+            }
+        }
+
+        //////now if there is any remaining element in Stack pop-reverse a peeked element and check if match can be found using turn or otherwise
+        while (!stack.isEmpty()) {
+            char character = stack.pop();
+
+            if (!stack.isEmpty()) {
+                if (character == stack.peek()) {
+                    counterBracketRev+=1;
+                    stack.pop();
+                } else {
+                    ////////checking required
+                    counterBracketRev+=2;
+                    stack.pop();
                 }
             } else {
-                if (stack.pop() == stack.peek()) {
-                    stack.pop();
-                    counterBracketRev++;
-                } else {
-                    counterBracketRev = -1;
-                    break;
-                }
+                counterBracketRev = -1;
             }
-        }
-        while (!tempStack.isEmpty()) {
-            if (stack.isEmpty()) {
-                if (tempStack.pop() == tempStack.peek()) {
-                    tempStack.pop();
-                    counterBracketRev++;
-                }
 
-                if (tempStack.size() % 2 != 0) {
-                    counterBracketRev = -1;
-                    break;
-                }
-            }
         }
+        //System.out.println(stack.size());
 
         return counterBracketRev;
-    }
 
-    static int countReverse(String input) {
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if (c == '{') stack.push('{');
-            else {
-                /////temp converting character here now
-                if (c == '}')
-                    c = '{';
-                if (!stack.isEmpty() && c != stack.peek()) {
-                    tempStack.push(stack.pop());
-                    //////checkagain
-                    boolean checkAgain = true;
-                    while (checkAgain) {
-                        if (stack.isEmpty() || c != stack.peek()) {
-                            tempStack.push(stack.pop());
-                        } else
-                            checkAgain = false;
-                    }
-
-                } else if (!stack.isEmpty() && c == stack.peek()) {
-                    stack.pop();
-                } else
-                    stack.push('}');
-                //else
-                //stack.pop();
-            }
-        }
-
-
-        return counterBracketRev;
     }
 
 }

@@ -1,4 +1,8 @@
 target/classes/org/datastructure/java/**
 target/
 target/classes/org/datastructure/java/
+.idea/**
 .idea/runConfigurations.xml
+.idea/.gitignore
+.idea/misc.xml
+.idea/vcs.xml

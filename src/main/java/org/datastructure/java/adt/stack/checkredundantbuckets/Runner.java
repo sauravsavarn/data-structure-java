@@ -1,4 +1,4 @@
-package org.datastructure.java.adt.stack.checkredundantbucket;
+package org.datastructure.java.adt.stack.checkredundantbuckets;
 
 import java.io.BufferedReader;
 import java.io.IOException;
