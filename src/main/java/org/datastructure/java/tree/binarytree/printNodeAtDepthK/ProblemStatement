@@ -1,0 +1,7 @@
+Print Node at depth K
+
+    NOTE: Depth of a Node is how deep it is below the root i.e. In other words we can say the distance
+          of a node from root.
+
+          Depth is not the Tree property but this is the property of each and every Node.
+
