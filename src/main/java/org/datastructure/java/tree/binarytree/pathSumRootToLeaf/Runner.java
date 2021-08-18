@@ -1,8 +1,10 @@
-package org.datastructure.java.tree.binarytree.heightoftree;
+package org.datastructure.java.tree.binarytree.pathSumRootToLeaf;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class QueueEmptyException extends Exception {
 
@@ -138,10 +140,8 @@ public class Runner {
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         BinaryTreeNode<Integer> root = takeInput();
+        int k = Integer.parseInt(br.readLine().trim());
 
-        //int h = Solution1.height(root);
-        int h = Solution2.height(root);
-
-        System.out.println(h);
+        Solution.rootToLeafPathsSumToK(root, k);
     }
 }

@@ -1,8 +1,10 @@
-package org.datastructure.java.tree.binarytree.heightoftree;
+package org.datastructure.java.tree.binarytree.mirrorbinarytree;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class QueueEmptyException extends Exception {
 
@@ -136,12 +138,41 @@ public class Runner {
         return root;
     }
 
+
+    private static void printLevelWise(BinaryTreeNode<Integer> root){
+        QueueUsingLL<BinaryTreeNode<Integer>>  primary = new QueueUsingLL<>();
+        QueueUsingLL<BinaryTreeNode<Integer>>  secondary = new QueueUsingLL<>();
+
+        primary.enqueue(root);
+
+        while(!primary.isEmpty()){
+            BinaryTreeNode<Integer> current=null;
+            try {
+                current = primary.dequeue();
+            } catch (QueueEmptyException e) {
+                System.out.println("Not possible");
+            }
+            System.out.print(current.data + " ");
+            if(current.left != null){
+                secondary.enqueue(current.left);
+            }
+            if(current.right != null){
+                secondary.enqueue(current.right);
+            }
+            if(primary.isEmpty()){
+                QueueUsingLL<BinaryTreeNode<Integer>>  temp = secondary;
+                secondary = primary;
+                primary = temp;
+                System.out.println();
+            }
+        }
+    }
+
     public static void main(String[] args) throws NumberFormatException, IOException {
         BinaryTreeNode<Integer> root = takeInput();
 
-        //int h = Solution1.height(root);
-        int h = Solution2.height(root);
+        Solution.mirrorBinaryTree(root);
+        printLevelWise(root);
 
-        System.out.println(h);
     }
 }

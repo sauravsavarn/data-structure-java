@@ -1,8 +1,10 @@
-package org.datastructure.java.tree.binarytree.heightoftree;
+package org.datastructure.java.tree.binarytree.levelordertraversal;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class QueueEmptyException extends Exception {
 
@@ -86,6 +88,17 @@ class BinaryTreeNode<T> {
     }
 }
 
+class Pair<T, U> {
+    T minimum;
+    U maximum;
+
+    public Pair(T minimum, U maximum) {
+        this.minimum = minimum;
+        this.maximum = maximum;
+    }
+
+}
+
 public class Runner {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -136,12 +149,11 @@ public class Runner {
         return root;
     }
 
+
     public static void main(String[] args) throws NumberFormatException, IOException {
         BinaryTreeNode<Integer> root = takeInput();
 
-        //int h = Solution1.height(root);
-        int h = Solution2.height(root);
+        Solution.printLevelWise(root);
 
-        System.out.println(h);
     }
 }

@@ -1,0 +1,15 @@
+Levelwise Input Binary Tree
+
+Algorithm :
+    1. Add root node to the queue
+    2. while queue is not empty
+        i. take the first element out
+       ii.
+            a. print out the first element
+            b. check for the element's children, if not null then add them to the queue as per below logic:
+                i. check for the left node of the element
+                    if left != -1
+                        push left to the queue.
+               ii. check for the right node of the element
+                    if right != -1
+                        push right to the queue.

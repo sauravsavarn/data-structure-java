@@ -1,0 +1,15 @@
+Levelwise Input Binary Tree
+
+Algorithm :
+    1. Take root input
+    2. Insert it into a queue
+    3. while queue is not empty
+        i. take the first element out
+       ii. create for it's left
+                if left != -1
+                    attach it to the element on the left-side
+                    & push left to the queue.
+      iii. create for it's right
+                if right != -1
+                    attach it to the elemnt in the right-side
+                    & push right to the queue

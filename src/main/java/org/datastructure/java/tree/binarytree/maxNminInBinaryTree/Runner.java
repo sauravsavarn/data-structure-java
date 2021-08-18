@@ -1,8 +1,10 @@
-package org.datastructure.java.tree.binarytree.heightoftree;
+package org.datastructure.java.tree.binarytree.maxNminInBinaryTree;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class QueueEmptyException extends Exception {
 
@@ -86,6 +88,17 @@ class BinaryTreeNode<T> {
     }
 }
 
+class Pair<T, U> {
+    T minimum;
+    U maximum;
+
+    public Pair(T minimum, U maximum) {
+        this.minimum = minimum;
+        this.maximum = maximum;
+    }
+
+}
+
 public class Runner {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -136,12 +149,41 @@ public class Runner {
         return root;
     }
 
+
+    private static void printLevelWise(BinaryTreeNode<Integer> root){
+        QueueUsingLL<BinaryTreeNode<Integer>>  primary = new QueueUsingLL<>();
+        QueueUsingLL<BinaryTreeNode<Integer>>  secondary = new QueueUsingLL<>();
+
+        primary.enqueue(root);
+
+        while(!primary.isEmpty()){
+            BinaryTreeNode<Integer> current=null;
+            try {
+                current = primary.dequeue();
+            } catch (QueueEmptyException e) {
+                System.out.println("Not possible");
+            }
+            System.out.print(current.data + " ");
+            if(current.left != null){
+                secondary.enqueue(current.left);
+            }
+            if(current.right != null){
+                secondary.enqueue(current.right);
+            }
+            if(primary.isEmpty()){
+                QueueUsingLL<BinaryTreeNode<Integer>>  temp = secondary;
+                secondary = primary;
+                primary = temp;
+                System.out.println();
+            }
+        }
+    }
+
     public static void main(String[] args) throws NumberFormatException, IOException {
         BinaryTreeNode<Integer> root = takeInput();
 
-        //int h = Solution1.height(root);
-        int h = Solution2.height(root);
+        Pair<Integer, Integer> pair = Solution.getMinAndMax(root);
+        System.out.println(pair.minimum + " " + pair.maximum);
 
-        System.out.println(h);
     }
 }

@@ -18,24 +18,21 @@ package org.datastructure.java.tree.binarytree.heightoftree;
 
  */
 
-public class Solution {
+public class Solution2 {
     static int maxHeightOfTree=0;
     public static int height(BinaryTreeNode<Integer> root) {
         //Your code goes here
-        int maxHeightOfTree=calculateHeight(root, 1);
+        int maxHeightOfTree=calculateHeight(root);
         return maxHeightOfTree;
     }
 
-    private static int calculateHeight(BinaryTreeNode<Integer> root, int height) {
+    private static int calculateHeight(BinaryTreeNode<Integer> root) {
         if(root==null)
             return 0;
 
-        calculateHeight(root.left, height+1);
-        calculateHeight(root.right, height+1);
+        int leftHeight=calculateHeight(root.left);
+        int rightHeight=calculateHeight(root.right);
 
-        if(maxHeightOfTree<height+1){
-            maxHeightOfTree=height;
-        }
-        return maxHeightOfTree;
+        return 1 + Math.max(leftHeight, rightHeight);
     }
 }

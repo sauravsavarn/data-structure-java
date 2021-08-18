@@ -1,4 +1,6 @@
-package org.datastructure.java.tree.binarytree.heightoftree;
+package org.datastructure.java.tree.binarytree.removeleafnodes;
+
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -136,12 +138,21 @@ public class Runner {
         return root;
     }
 
+    public static void inOrder(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+
+        inOrder(root.left);
+        System.out.print(root.data + " ");
+        inOrder(root.right);
+
+    }
+
     public static void main(String[] args) throws NumberFormatException, IOException {
         BinaryTreeNode<Integer> root = takeInput();
 
-        //int h = Solution1.height(root);
-        int h = Solution2.height(root);
-
-        System.out.println(h);
+        Solution1.removeLeafNodes(root);
+        inOrder(root);
     }
 }
