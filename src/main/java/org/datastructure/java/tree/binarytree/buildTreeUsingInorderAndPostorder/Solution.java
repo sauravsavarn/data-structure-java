@@ -25,12 +25,13 @@ public class Solution {
         int root=-1; int[] leftInorder; int[] rightInorder; int[] leftPostorder; int[] rightPostorder;
 
         //Your code goes here
-        if(postOrder.length<3)
+        if(postOrder.length==0)
             return null;
         if(inOrder.length==1)
             return new BinaryTreeNode<>(inOrder[0]);
 
-        root=postOrder[2];
+        /////here root in case of postorder is the rightmost element
+        root=postOrder[postOrder.length-1];
 
         int k=1;
         for (int ele: inOrder) {
@@ -58,10 +59,10 @@ public class Solution {
         rightPostorder = new int[rightInorder.length];
         /////
         for (int i = 0; i < leftInorder.length; i++) {
-            leftPostorder[i]=postOrder[i+1];
+            leftPostorder[i]=postOrder[i];
         }
         l=0;
-        for (int i = (leftPostorder.length+1); i < postOrder.length; i++) {
+        for (int i = leftPostorder.length; i < postOrder.length-1; i++) {
             rightPostorder[l++]=postOrder[i];
         }
         //////////>>>>>>>SEGREGATING PRE-ORDER ARRAY INTO leftPreorder & rightPreorder : END

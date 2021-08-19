@@ -21,8 +21,9 @@ package org.datastructure.java.tree.binarytree.printNodesAtDistanceKFromNode;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class Solution {
+////////this Solution is Incomplete. Will try later for this approachs.
+//////// Till Now - REFER SOLUTION 2 for correct and other way of problem solution approach and is correct.
+public class Solution1 {
     static List<Integer> aList = new ArrayList<>();
     public static void nodesAtDistanceK(BinaryTreeNode<Integer> root, int node, int k) {
         //Your code goes here

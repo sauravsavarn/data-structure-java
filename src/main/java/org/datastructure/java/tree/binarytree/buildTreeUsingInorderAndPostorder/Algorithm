@@ -1,13 +1,14 @@
-Construct Tree Using Inorder and Preorder
+Construct Tree Using Inorder and Postorder
 
 Algorithm :
-    1. Find the root [HINT: this is 0th element of preorder array i.e. preorder[0] ]
+    1. Find the root [HINT: this is last element of postorder array i.e. postorder[postorder.length-1] ]
     2. Find Inorder of both left & right subtree
         [HINT: Search for root in Inorder, all left element is Inorder of left subtree &
                all right element is Inorder of right subtree ]
-    3. Find Preorder of both left & right subtree
+    3. Find Postorder of both left & right subtree
         [HINT: Search for total number of elements {i.e. elements count from Inorder of left subtree}
-               from root which is Preorder of left Subtree & all other remaining number of elements is
-               Preorder of right subtree]
+               from 0th element of Postorder array[], which is Postorder of left Subtree & all
+               other remaining number of elements minus last element (i.e. which is the root)
+               is Postorder of right subtree]
     4. Use Recursion to build LEFT & RIGHT Subtree.
     5. Connect root with both

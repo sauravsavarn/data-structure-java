@@ -1,0 +1,8 @@
+Construct Tree Using Inorder and Postorder
+
+Algorithm :
+    1. Since the Binary Tree is already sorted, thus
+        a. if num < root.data
+           then Search for the number in left sub-tree only.
+        b. else if num >= root.data
+           then Search for the number in right sub-tree only.
