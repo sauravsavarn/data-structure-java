@@ -1,8 +1,9 @@
-package org.datastructure.java.tree.binarysearchtree.elementsBetweenK1NK2;
+package org.datastructure.java.tree.binarysearchtree.lcaOfBST;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 class QueueEmptyException extends Exception {
@@ -123,10 +124,9 @@ public class Runner {
     public static void main(String[] args) throws IOException {
         BinaryTreeNode<Integer> root = takeInput();
         st = new StringTokenizer(br.readLine());
-        int k1 = Integer.parseInt(st.nextToken());
-        int k2 = Integer.parseInt(st.nextToken());
-        //Solution1.elementsInRangeK1K2(root, k1, k2);
-        Solution2.elementsInRangeK1K2(root, k1, k2);
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        System.out.println(Solution.getLCA(root, a, b));
     }
 
 }

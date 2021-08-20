@@ -1,0 +1,9 @@
+Construct BST from Sorted Array
+
+Algorithm :
+    1. Take the MIDDLE element and create root node
+    2. Take left side of middle of array and pass them
+       Recursively to get the Left Sub-Tree
+    3. Use right side elements to get Right Sub-Tree
+    4. Connect these Sub-Tree's with the root node
+    5. Finally, return the root node

@@ -1,8 +1,9 @@
-package org.datastructure.java.tree.binarysearchtree.elementsBetweenK1NK2;
+package org.datastructure.java.tree.binarysearchtree.bstToLL;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 class QueueEmptyException extends Exception {
@@ -82,6 +83,15 @@ class BinaryTreeNode<T> {
     }
 }
 
+class LinkedListNode<T> {
+    T data;
+    LinkedListNode<T> next;
+
+    public LinkedListNode(T data) {
+        this.data = data;
+    }
+}
+
 public class Runner {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -122,11 +132,11 @@ public class Runner {
 
     public static void main(String[] args) throws IOException {
         BinaryTreeNode<Integer> root = takeInput();
-        st = new StringTokenizer(br.readLine());
-        int k1 = Integer.parseInt(st.nextToken());
-        int k2 = Integer.parseInt(st.nextToken());
-        //Solution1.elementsInRangeK1K2(root, k1, k2);
-        Solution2.elementsInRangeK1K2(root, k1, k2);
+        LinkedListNode<Integer> head = Solution.constructLinkedList(root);
+        while(head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
     }
 
 }

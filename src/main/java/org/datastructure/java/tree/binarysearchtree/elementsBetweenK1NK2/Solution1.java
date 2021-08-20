@@ -1,6 +1,6 @@
 package org.datastructure.java.tree.binarysearchtree.elementsBetweenK1NK2;
 
-public class Solution {
+public class Solution1 {
 
 	/*	Binary Tree Node class
 	 *

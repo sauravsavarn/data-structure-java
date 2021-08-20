@@ -1,4 +1,4 @@
-package org.datastructure.java.tree.binarysearchtree.elementsBetweenK1NK2;
+package org.datastructure.java.tree.binarysearchtree.replaceWithSumOfGreaterNodes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -120,13 +120,37 @@ public class Runner {
         return root;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void printLevelWiseAtDiffLevel(BinaryTreeNode<Integer> root) throws QueueEmptyException {
+        if (root == null)
+            return;
+        QueueUsingLL<BinaryTreeNode<Integer>> q = new QueueUsingLL<BinaryTreeNode<Integer>>();
+        q.enqueue(root);
+        q.enqueue(null);
+        while (!q.isEmpty()) {
+            BinaryTreeNode<Integer> first = q.front();
+            q.dequeue();
+            if (first == null) {
+                if (q.isEmpty()) {
+                    break;
+                }
+                System.out.println();
+                q.enqueue(null);
+                continue;
+            }
+            System.out.print(first.data + " ");
+            if (first.left != null) {
+                q.enqueue(first.left);
+            }
+            if (first.right != null) {
+                q.enqueue(first.right);
+            }
+        }
+    }
+
+    public static void main(String[] args) throws IOException, QueueEmptyException {
         BinaryTreeNode<Integer> root = takeInput();
-        st = new StringTokenizer(br.readLine());
-        int k1 = Integer.parseInt(st.nextToken());
-        int k2 = Integer.parseInt(st.nextToken());
-        //Solution1.elementsInRangeK1K2(root, k1, k2);
-        Solution2.elementsInRangeK1K2(root, k1, k2);
+        Solution.replaceWithLargerNodesSum(root);
+        printLevelWiseAtDiffLevel(root);
     }
 
 }

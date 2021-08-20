@@ -1,5 +1,7 @@
 package org.datastructure.java.tree.binarysearchtree.constructBSTFromSortedArray;
 
+import java.util.Arrays;
+
 public class Solution {
 
 	/*	Binary Tree Node class
@@ -15,29 +17,40 @@ public class Solution {
 		}
 		*/
 
-    public static BinaryTreeNode<Integer> SortedArrayToBST(int[] arr, int n){
-        if(arr.length==0)
+    public static BinaryTreeNode<Integer> SortedArrayToBST(int[] arr, int n) {
+        if (arr.length == 0)
             return null;
-        if(arr.length==1)
+        if (arr.length == 1)
             return new BinaryTreeNode<>(arr[0]);
 
-        BinaryTreeNode<Integer> rootNode = SortedArrayToBST(arr, 0, arr.length-1, n);
+        BinaryTreeNode<Integer> rootNode = SortedArrayToBST(arr);
         return rootNode;
     }
 
-    static BinaryTreeNode<Integer> SortedArrayToBST(int[] arr, int startIndex, int endIndex, int n){
-        /////calculate mid-point
-        //int midPoint = arr.length/2;
-        //int midPoint = (endIndex-startIndex)/2;
-        int midPoint = n/2;
-        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(arr[startIndex+midPoint]);
+    static BinaryTreeNode<Integer> SortedArrayToBST(int[] arr) {
+        if (arr.length == 0)
+            return null;
 
-        if(midPoint==0)
+        /////calculate mid-point
+        int midPoint = (arr.length) / 2;
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(arr[midPoint]);
+
+        if (midPoint == 0)
             return root;
 
-        root.left = SortedArrayToBST(arr, startIndex, startIndex+midPoint-1, (midPoint-0));
-        root.right = SortedArrayToBST(arr, startIndex+midPoint+1, endIndex, startIndex+(arr.length-n));
-        //root.right = SortedArrayToBST(arr, startIndex+midPoint+1, endIndex, (arr.length-midPoint));
+        try {
+            int[] leftArray = Arrays.copyOfRange(arr, 0, midPoint);
+            root.left = SortedArrayToBST(leftArray);
+        } catch (Exception e) {
+            //
+        }
+
+        try {
+            int[] rightArray = Arrays.copyOfRange(arr, midPoint + 1, arr.length);
+            root.right = SortedArrayToBST(rightArray);
+        } catch (Exception e) {
+            //
+        }
 
         return root;
     }
