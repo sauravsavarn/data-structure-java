@@ -1,0 +1,23 @@
+Second Largest Element In Tree
+
+Algorithm :
+
+    A simple solution is to traverse the array twice. In the first traversal find the maximum
+    value node. In the second traversal find the greatest element node less than the element
+    obtained in first traversal. The time complexity of this solution is O(n).
+
+    An Efficient Solution can be to find the second largest element in a single traversal.
+    Below is the complete algorithm for doing this:
+
+        1) Initialize two nodes first and second to NULL as,
+           first = second = NULL
+        2) Start traversing the tree,
+           a) If the current node data say root->key is greater
+              than first->key then update first and second as,
+              second = first
+              first = root
+           b) If the current node data is in between first and
+              second, then update second to store the value
+              of current node as
+                second = root
+        3) Return the node stored in second.
