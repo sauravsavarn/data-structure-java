@@ -1,4 +1,4 @@
-package org.datastructure.java.hashmaps.pairsWithDifferenceK;
+package org.datastructure.java.hashmaps.longestSubsetZeroSum;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,10 +18,7 @@ public class Runner {
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        int k = Integer.parseInt(br.readLine());
-        //System.out.println(Solution1.getPairsWithDifferenceK(arr, k));
-        //System.out.println(Solution2.getPairsWithDifferenceK(arr, k));
-        System.out.println(Solution3.getPairsWithDifferenceK(arr, k));
+        System.out.println(Solution.lengthOfLongestSubsetWithZeroSum(arr));
     }
 
 }

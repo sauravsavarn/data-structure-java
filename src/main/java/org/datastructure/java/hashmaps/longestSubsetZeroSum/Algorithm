@@ -1,0 +1,19 @@
+Longest subset zero sum
+
+Naive Approach:
+    This involves the use of brute force where two nested loops are used. The outer loop
+    is used to fix the starting position of the sub-array, and the inner loop is used for
+    the ending position of the sub-array and if the sum of elements is equal to zero, then
+    increase the count.
+
+
+Algorithm :
+
+    Consider all sub-arrays one by one and check the sum of every sub-array.
+    Run two loops: the outer loop picks the starting point i and the inner loop tries all
+    sub-arrays starting from i.
+
+Complexity Analysis:
+
+    Time Complexity: O(n^2) due to the use of nested loops.
+    Space complexity: O(1) as no extra space is used.
