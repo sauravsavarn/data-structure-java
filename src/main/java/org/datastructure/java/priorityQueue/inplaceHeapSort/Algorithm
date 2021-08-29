@@ -1,0 +1,20 @@
+Construct Tree Using Inorder and Postorder
+
+Algorithm :
+    1. Build the MIN-ORDER HEAP firstly.
+        [HINT: For this we apply up-heapify operation]
+
+            for i=1 to (n-1) :
+                childIndex = i
+                parentIndex = (i-1)/2
+
+                while(childIndex > 0) :
+                    //swap element w.r.t childIndex & parentIndex
+                    int tmp=arr[parentIndex]
+                    arr[parentIndex]=arr[childIndex]
+                    arr[childIndex]=tmp
+                    childIndex=parentIndex;
+                    parentIndex = (childIndex-1)/2; [HINT: as parentIndex = (i-1)/2, when childIndex=i]
+
+    2.  Take 0th index element and swap with (n-1) index element
+            then apply down-heapify operation
