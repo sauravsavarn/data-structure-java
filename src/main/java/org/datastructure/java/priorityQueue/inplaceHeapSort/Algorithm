@@ -1,6 +1,8 @@
 Construct Tree Using Inorder and Postorder
 
-Algorithm :
+NOTE: Algorithm2 is the most optimal solution as compared to Algorithm1.
+
+Algorithm 1 :
     1. Build the MIN-ORDER HEAP firstly.
         [HINT: For this we apply up-heapify operation]
 
@@ -15,6 +17,46 @@ Algorithm :
                     arr[childIndex]=tmp
                     childIndex=parentIndex;
                     parentIndex = (childIndex-1)/2; [HINT: as parentIndex = (i-1)/2, when childIndex=i]
+
+    2.  Take 0th index element and swap with (n-1) index element
+            then apply down-heapify operation
+
+
+Algorithm 2 :
+    1. Find the non-leaf NODE. Use formula : (total_num_of_nodes / 2)
+        [HINT: Perform downHeapify Operation from ( (total_num_of_nodes / 2) - 1 ) to 0 ]
+        [HINT: Perform MIN HEAP OPERATION while performing downHeapify ]
+
+            for i=(total_num_of_nodes / 2) to 0 :
+                parentIndex = i;
+                childIndex = -1;
+
+                while(parentIndex >= childIndex) :
+                    //swap element w.r.t childIndex & parentIndex
+                    if (arr[parentIndex] > arr[childIndex]) :
+                        int element = arr[parentIndex];
+                        arr[parentIndex] = arr[childIndex];
+                        arr[childIndex] = element;
+
+                        ///////also swapping index of both new-Child & new-Parent.
+                        parentIndex = childIndex;
+                    else
+                        parentIndex = childIndex;
+
+                    /////////first check whether to proceed with the LEFT or the RIGHT Child.
+                    indexLeftChild = (2 * parentIndex + 1);
+                    indexRightChild = (2 * parentIndex + 2);
+
+                    if (indexRightChild >= arr.length) :
+                        childIndex = indexLeftChild;
+                    elif (arr[indexLeftChild] < arr[indexRightChild]) :
+                        childIndex = indexLeftChild;
+                    else :
+                        childIndex = indexRightChild;
+
+                    if (arr.length - 1 >= childIndex) :
+                        downheapifyOperation(arr, parentIndex, childIndex);
+
 
     2.  Take 0th index element and swap with (n-1) index element
             then apply down-heapify operation

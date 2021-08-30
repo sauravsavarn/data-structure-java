@@ -1,44 +1,81 @@
-package org.datastructure.java.priorityQueue.inplaceHeapSort;
+package org.datastructure.java.priorityQueue.buyTheTicket;
 
-public class Solution2 {
+import java.util.LinkedList;
+import java.util.Queue;
 
+public class Solution1 {
 
-    public static void inplaceHeapSort(int arr[]) {
+    public static int buyTicket(int input[], int k) {
         /* Your class should be named Solution
          * Don't write main().
          * Don't read input, it is passed as function argument.
-         * Change in the given input itself.
+         * Return output and don't print it.
          * Taking input and printing output is handled automatically.
          */
-        if (arr.length == 0 || arr.length == 1) return;
-        ////////find the total number of non-leaf nodes
-        int numNonLeafNodes = arr.length/2;
+        Queue<Ticket> queue = new LinkedList<>();
+        for (int i = 0; i < input.length; i++) {
+            boolean destinedElement = false;
+            if (k == i) {
+                destinedElement = true;
+            }
+            int index = i;
+            int priority = input[i];
 
-        ////////now for this number of Nodes perform downHeapifyOperation
-        for (int i = numNonLeafNodes-1; i >=0 ; i--) {
-            ////now proceed with the downHeapifyOperation
+            //////////adding these information into the Queue
+            queue.add(new Ticket(priority, index, destinedElement));
+        }
+
+        int counter = 0;
+        int largestElementToGet = 1;
+        while (true) {
+            Ticket ticket = queue.poll();
+            ///////get the 1s Largest Element
+            int firstLargestElement = kthLargest(input, largestElementToGet);
+
+            if (ticket.priority == firstLargestElement) {
+                counter++;
+                largestElementToGet += 1;
+            } else {
+                queue.add(ticket);
+            }
+
+            if (ticket.destinedElement && ticket.priority == firstLargestElement) {
+                break;
+            }
+        }
+
+        return counter;
+    }
+
+    private static int kthLargest(int[] input, int k) {
+        // Write your code here
+        int numOfLeafNodes = input.length / 2;
+        for (int i = numOfLeafNodes - 1; i >= 0; i--) {
+            /////now perform downHeapify and check at Every STEP(s) if it is a MAX HEAP.
             int parentIndex = i;
             int childIndex = -1;
-            downheapifyOperation(arr, parentIndex, childIndex);
+            downHeapifyOperation(input, parentIndex, childIndex);
         }
 
         ////////now working on element by element iff any root-node value is less than the (k+i)th element then replace with the value from (k+i)th place
-        for (int k = 0, i = arr.length-1-k ; i >= 0; i--, k++) {
+        for (int j = 0, i = input.length - 1 - j; i >= 0; i--, j++) {
             ////SWAP the top-element
-            int element = arr[0];
-            arr[0] = arr[i];
-            arr[i] = element;
+            int element = input[0];
+            input[0] = input[i];
+            input[i] = element;
 
             ////now proceed with the downHeapifyOperation
             int parentIndex = 0;
             int childIndex = -1;
-            downheapifyOperation(arr, parentIndex, childIndex, i - 1);
+            downheapifyOperation(input, parentIndex, childIndex, i - 1);
         }
 
+        ///////////now get the kth element
+        return input[k - 1];
     }
 
-    private static void downheapifyOperation(int arr[], int parentIndex, int childIndex) {
-        if (childIndex != -1 && parentIndex >= childIndex) return;
+    private static boolean downHeapifyOperation(int arr[], int parentIndex, int childIndex) {
+        if (childIndex != -1 && parentIndex >= childIndex) return true;
 
         ////////get Index of Left & Right child
         int indexLeftChild = -1;
@@ -69,14 +106,13 @@ public class Solution2 {
             childIndex = indexRightChild;
 
         if (arr.length - 1 >= childIndex) {
-            downheapifyOperation(arr, parentIndex, childIndex);
-        }
-
+            return downHeapifyOperation(arr, parentIndex, childIndex);
+        } else return true;
     }
 
     private static void downheapifyOperation(int arr[], int parentIndex, int childIndex, int maxIndexToCare) {
         //////base case
-        if(maxIndexToCare<=0)return;
+        if (maxIndexToCare <= 0) return;
         if (childIndex != -1 && parentIndex >= childIndex) return;
         if (childIndex > maxIndexToCare || parentIndex > maxIndexToCare) return;
 
@@ -92,7 +128,7 @@ public class Solution2 {
 
                 ///////also swapping index of both new-Child & new-Parent.
                 parentIndex = childIndex;
-            }else return;
+            } else return;
         }
 
         /////////first check whether to proceed with the LEFT or the RIGHT Child.
@@ -101,7 +137,7 @@ public class Solution2 {
 
         if (indexRightChild >= arr.length)
             childIndex = indexLeftChild;
-        else if(indexRightChild > maxIndexToCare)
+        else if (indexRightChild > maxIndexToCare)
             childIndex = indexLeftChild;
         else if (arr[indexLeftChild] < arr[indexRightChild])
             childIndex = indexLeftChild;
@@ -113,3 +149,15 @@ public class Solution2 {
         }
     }
 }
+
+//class Ticket {
+//    int priority;
+//    int index;
+//    boolean destinedElement = false;
+//
+//    public Ticket(int priority, int index, boolean destinedElement) {
+//        this.priority = priority;
+//        this.index = index;
+//        this.destinedElement = destinedElement;
+//    }
+//}

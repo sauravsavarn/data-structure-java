@@ -1,44 +1,38 @@
-package org.datastructure.java.priorityQueue.inplaceHeapSort;
+package org.datastructure.java.priorityQueue.kthLargestElement;
 
-public class Solution2 {
+public class Solution {
 
+    public static int kthLargest(int n, int[] input, int k) {
+        // Write your code here
+        if ( (n == 0 || n == 1) && n<k) return -1;
 
-    public static void inplaceHeapSort(int arr[]) {
-        /* Your class should be named Solution
-         * Don't write main().
-         * Don't read input, it is passed as function argument.
-         * Change in the given input itself.
-         * Taking input and printing output is handled automatically.
-         */
-        if (arr.length == 0 || arr.length == 1) return;
-        ////////find the total number of non-leaf nodes
-        int numNonLeafNodes = arr.length/2;
-
-        ////////now for this number of Nodes perform downHeapifyOperation
-        for (int i = numNonLeafNodes-1; i >=0 ; i--) {
-            ////now proceed with the downHeapifyOperation
+        int numOfLeafNodes = input.length / 2;
+        for (int i = numOfLeafNodes - 1; i >= 0; i--) {
+            /////now perform downHeapify and check at Every STEP(s) if it is a MAX HEAP.
             int parentIndex = i;
             int childIndex = -1;
-            downheapifyOperation(arr, parentIndex, childIndex);
+            downHeapifyOperation(input, parentIndex, childIndex);
         }
 
         ////////now working on element by element iff any root-node value is less than the (k+i)th element then replace with the value from (k+i)th place
-        for (int k = 0, i = arr.length-1-k ; i >= 0; i--, k++) {
+        for (int j = 0, i = input.length-1-j ; i >= 0; i--, j++) {
             ////SWAP the top-element
-            int element = arr[0];
-            arr[0] = arr[i];
-            arr[i] = element;
+            int element = input[0];
+            input[0] = input[i];
+            input[i] = element;
 
             ////now proceed with the downHeapifyOperation
             int parentIndex = 0;
             int childIndex = -1;
-            downheapifyOperation(arr, parentIndex, childIndex, i - 1);
+            downheapifyOperation(input, parentIndex, childIndex, i - 1);
         }
 
+        ///////////now get the kth element
+        return input[k-1];
     }
 
-    private static void downheapifyOperation(int arr[], int parentIndex, int childIndex) {
-        if (childIndex != -1 && parentIndex >= childIndex) return;
+    private static boolean downHeapifyOperation(int arr[], int parentIndex, int childIndex) {
+        if (childIndex != -1 && parentIndex >= childIndex) return true;
 
         ////////get Index of Left & Right child
         int indexLeftChild = -1;
@@ -69,9 +63,8 @@ public class Solution2 {
             childIndex = indexRightChild;
 
         if (arr.length - 1 >= childIndex) {
-            downheapifyOperation(arr, parentIndex, childIndex);
-        }
-
+            return downHeapifyOperation(arr, parentIndex, childIndex);
+        } else return true;
     }
 
     private static void downheapifyOperation(int arr[], int parentIndex, int childIndex, int maxIndexToCare) {

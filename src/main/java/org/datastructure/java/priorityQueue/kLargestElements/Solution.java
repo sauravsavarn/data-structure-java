@@ -19,14 +19,6 @@ public class Solution {
             return aList;
         }
 
-        ///////firstly call for downHeafify 1st k elements in arr.
-//        for (int i = 1; i < k; i++) {
-//            int parentIndex = i - 1;
-//            int childIndex = -1;
-//
-//            downheapifyOperation(input, parentIndex, childIndex, k - 1);
-//        }
-
         ///////firstly call for upHeafify 1st k elements in arr.
         for (int i = k-1; i >=0; i--) {
             int childIndex = i;
@@ -36,13 +28,14 @@ public class Solution {
             /////proceed with the re-alignment (i.e. upheapify operation) of the data as per MIN ORDER HEAP rule for this iteration index 'i'.
             upheapifyOperation(input, parentIndex, i);
         }
+
+        ///////firstly call for downHeafify 1st k elements in arr.
         for (int i = 1; i < k; i++) {
             int parentIndex = i - 1;
             int childIndex = -1;
 
             downheapifyOperation(input, parentIndex, childIndex, k - 1);
         }
-        System.out.println("testing");
 
         ////////now working on element by element iff any root-node value is less than the (k+i)th element then replace with the value from (k+i)th place
         for (int i = k; i < input.length; i++) {
