@@ -1,0 +1,13 @@
+INPUT :
+----------
+2 code
+2 cod
+-1
+
+OUTPUT :
+-----------
+false
+false
+
+
+

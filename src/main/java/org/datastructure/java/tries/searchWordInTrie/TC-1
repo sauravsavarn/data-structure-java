@@ -1,0 +1,16 @@
+INPUT :
+----------
+1 there
+1 their
+2 the
+2 there
+2 theres
+-1
+
+OUTPUT :
+-----------
+false
+true
+false
+
+
