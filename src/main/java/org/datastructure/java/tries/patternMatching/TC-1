@@ -1,0 +1,12 @@
+INPUT :
+----------
+4
+abc def ghi cba
+de
+
+OUTPUT :
+-----------
+true
+
+
+

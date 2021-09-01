@@ -1,0 +1,15 @@
+INPUT :
+----------
+7
+do dont no not note notes den
+no
+
+OUTPUT :
+-----------
+no
+not
+note
+notes
+
+
+

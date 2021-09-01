@@ -1,0 +1,13 @@
+INPUT :
+----------
+4
+abc def ghi hg
+hif
+
+OUTPUT :
+-----------
+false
+
+
+
+
