@@ -1,0 +1,25 @@
+PalindromePair
+
+IDEA :
+    The idea is to maintain a Trie of the reverse of all words.
+
+Algorithm :
+    1. Create an empty Trie
+    2.
+       FOR :
+        if i==0 :
+            Create FUNC() to check if the word is itself a Palindrome or not. If yes return true
+            otherwise add both the default & reverse ordering into Tries.
+        else :
+            # check the existence of palindrome if-otherwise add the word in both default & reverse ordering.
+            if search( word ) :
+                return true;
+            if search( reverse_of_word ) :
+                return true;
+            else :
+                if checkItself( word ) :
+                    return true;
+                if checkInReverseOneByOne( word ) :
+                    return true;
+                else :
+                    add both the default & reverse ordering into Tries
