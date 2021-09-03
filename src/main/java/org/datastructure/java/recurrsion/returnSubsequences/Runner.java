@@ -11,6 +11,9 @@ public class Runner {
         String word = br.readLine();
 
         Solution solution = new Solution();
-        solution.printAllSubsequences(word);
+        String[] output = solution.subsequences(word);
+        for (String subsequence : output) {
+            System.out.println(subsequence);
+        }
     }
 }
