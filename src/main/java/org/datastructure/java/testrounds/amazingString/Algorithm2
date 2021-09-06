@@ -1,0 +1,39 @@
+APPROACH 1
+
+IDEA :
+    The basic idea of this approach is to count the number of total occurrences of each
+    letter in strings ‘FIRST’, ‘SECOND’ and ‘THIRD’. Then, we will check for all the
+    letters present, whether the sum of occurrences of the first two strings is the same
+    as the third or not. If all the occurrences of all letters are the same then at last
+    we will return “YES” or else we will return “NO”.
+
+Time Complexity :
+
+
+Algorithm :
+
+    1.  Declare three temporary arrays as ‘S1’, ‘S2’ and ‘S3’ of size 26 and assign them
+        values 0 which will point to the number of occurrences of that particular ASCII
+        valued letter of the strings ‘FIRST’, ‘SECOND’ and ‘THIRD’.
+
+    2.  Iterating from starting of string ‘FIRST’ to ending of it.
+
+        a.  Incrementing the value of the index having ASCII value same as the current
+            character in ‘S1’.
+
+    3.  Iterating from starting of string ‘SECOND’ to ending of it.
+
+        a.  Incrementing the value of the index having ASCII value same as the current
+            character in ‘S2’.
+    4.  Iterating from starting of string ‘THIRD’ to ending of it.
+        a.  Increment the value of the index having ASCII value same as the current
+            character in ‘S3’.
+    5.  Run a loop for ‘i’ = 0  to 255 :
+
+        a.  If the sum of ‘S1[i]’ and ‘S2[i]’ equals ‘S3[i]’ then we will continue iterating
+            through the loop.
+
+        b.  Else we will return “NO” as the total number of occurrences of that particular
+            character in the combination of ‘FIRST’ and ‘SECOND’ and of ‘THIRD’ doesn’t match.
+
+    6.  Finally, return “YES”.

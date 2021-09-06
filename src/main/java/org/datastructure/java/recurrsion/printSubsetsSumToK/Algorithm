@@ -1,0 +1,11 @@
+Print Subset Sum to K
+
+IDEA :
+    We recursively generate all subsets. We keep track of elements of current subset.
+    If sum of elements in current subset becomes equal to given sum, we print the subset.
+
+Time Complexity :
+    O(2^n)
+
+Algorithm :
+

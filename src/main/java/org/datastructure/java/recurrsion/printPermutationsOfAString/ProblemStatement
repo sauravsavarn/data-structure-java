@@ -1,0 +1,25 @@
+Print Permutations of a String
+
+Given a string, find and print all the possible permutations of the input string.
+
+    Note :
+        The order of permutations are not important. Just print them in different lines.
+
+    Input format :
+
+
+    Output Format :
+
+
+    Constraints :
+
+
+    Sample Input 1 :
+        abc
+    Sample Output 1 :
+        abc
+        acb
+        bac
+        bca
+        cab
+        cba

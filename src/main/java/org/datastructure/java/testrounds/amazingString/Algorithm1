@@ -1,0 +1,54 @@
+APPROACH 1
+
+IDEA :
+    The basic idea of this approach is that we will initially iterate through both the
+    strings (‘FIRST’ and ‘SECOND’) and for all the characters present in them we will
+    try to remove the same character from ‘THIRD’. So, after every iteration, one character
+    from string ‘THIRD’ will be removed and if the letter is not found in between then we
+    will return “NO”. At last, we will check that if string ‘THIRD’ becomes empty that means
+    that all characters match and will return “YES” or else will return “NO” as few extra
+    characters are present in string ‘THIRD’.
+
+Time Complexity :
+
+
+Algorithm :
+
+    1.  Declaring an array of size equal to length of the string ‘THIRD’ and assigning them
+        value as 0.
+
+    2.  Iterating from starting of string ‘FIRST’ to ending of it.
+
+        a.  Declare a temporary variable named ‘TEMP’ to keep track of the current character
+            and initialize it with 0.
+
+        b.  Check for the first occurrence of that particular character in the string ‘THIRD’.
+
+            i.  If the character matches the current character of ‘FIRST’ and also the
+                current character is not visited them we got the corresponding character
+                for the current character.
+
+                a.  Mark current index as visited and change of ‘TEMP’ variable to 1 as it
+                    indicates that corresponding character is found and break the loop.
+
+        c.  If ‘TEMP’ is still 0 that means that the corresponding character is not found and so,
+            return “NO”.
+
+    3.  Iterating from starting of string ‘SECOND’ to ending of it.
+
+        a.  Declare a temporary variable named ‘TEMP’ to keep track of the current character
+            and initialize it with 0.
+
+        b.  Check for the first occurrence of that particular character in the string ‘THIRD’.
+            i.  If the character matches the current character of ‘SECOND’ and also the current
+                character is not visited them we got the corresponding character for the current
+                character.
+
+                a.  Mark current index as visited and change of ‘TEMP’ variable to 1 as it
+                    indicates that corresponding character is found and break the loop.
+
+        c.  If ‘TEMP’ is still 0 that means that the corresponding character is not found and so,
+            return “NO”.
+    5.  After iterating both the strings ‘FIRST’ and ‘SECOND’, we will check that if any character
+        is still unvisited or not.
+    6.  If any character is found not visited then we will return “NO”, else “YES”.
