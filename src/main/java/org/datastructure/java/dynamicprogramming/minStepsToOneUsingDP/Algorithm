@@ -1,0 +1,11 @@
+Min Steps To 1 Using DP
+
+IDEA :
+     Use Memoization alongwith the Iterative Dynamic Programming to solve this type of problem.
+     Though Memoization alongwith Recursive Dynamic Programming will also work , but at per ReadMe.md
+     executes in greater time than Iterative Dynamic Programming Approach and also will give
+     StackOverflowException for large inputs.
+
+     REFER : min_steps_to_1_using_DP.jpeg for the approach,
+
+     where left most side of branch will have all the unique elements

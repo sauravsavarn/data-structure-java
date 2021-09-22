@@ -1,0 +1,22 @@
+Byte Landian
+
+IDEA :
+     Use Memoization alongwith the Dynamic Programming to solve this type of problem.
+     Also note, as per byte_landian.jpeg till n==11, Max output will be same as n itself
+     i.e.
+        for n=1, MaxOutput=1,
+        for n=2, MaxOutput=2,
+        for n=3, MaxOutput=3,
+        for n=4, MaxOutput=4,
+        for n=5, MaxOutput=5,
+        for n=6, MaxOutput=6,
+        for n=7, MaxOutput=7,
+        for n=8, MaxOutput=8,
+        for n=9, MaxOutput=9,
+        for n=10, MaxOutput=10,
+        for n=11, MaxOutput=11,
+
+     But from n>11, MaxOutput will be same as n or something else
+     i.e.
+        for n=12, MaxOutput=13, which is different than n=12
+        for n=15, MaxOutput=15, which is same as n=15

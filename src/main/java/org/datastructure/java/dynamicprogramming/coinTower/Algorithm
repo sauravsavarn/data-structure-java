@@ -1,0 +1,36 @@
+Coin Tower
+
+IDEA :
+    For Input :  n = 5, x = 3, y = 4, Agent : A and B, where A will choose 1st.
+    Output : A
+
+    Approach:
+        There are 5 coins, every player can pick 1 or 3 or 4 coins on his/her turn.
+        A can win by picking 3 coins in first chance.
+        Now 2 coins will be left so B will pick one
+        coin and now A can win by picking the last coin.
+
+
+
+    For Input : 2 3 4, here n=2, x=3 & y=4, Agent : A and B, where A will choose 1st.
+    Output : B
+
+    Approach:
+            There are 2 coins, every player can pick 1 or 3 or 4 coins on his/her turn.
+            A picks 1 coins in first chance.
+            Now last 1 coins will be left so B will pick one coin and
+            thus now B win by picking the last coin.
+
+
+
+    ALGORITHM :
+        Let us take few example values of n for x = 3, y = 4.
+
+        n = 0 A can not pick any coin so he losses
+        n = 1 A can pick 1 coin and win the game
+        n = 2 A can pick only 1 coin. Now B will pick 1 coin and win the game
+        n = 3 4 A will win the game by picking 3 or 4 coins
+        n = 5, 6 A will choose 3 or 4 coins. Now B will have to choose from 2 coins so A will win.
+
+        We can observe that A wins game for n coins only when B loses for coins n-1 or n-x or n-y.
+

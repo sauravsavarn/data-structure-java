@@ -1,0 +1,36 @@
+Loot Houses
+
+IDEA :
+     Given an array, the solution is to find the maximum sum subsequence where no two selected
+     elements are adjacent. So the approach to the problem is a recursive dynamic programming
+     solution. So there are two cases.
+
+
+     1. If an element is selected then the next element cannot be selected.
+     2. If an element is not selected then the next element can be selected.
+
+     So the recursive solution can easily be devised. The sub-problems can be stored thus reducing
+     the complexity and converting the recursive solution to a Dynamic programming problem.
+
+
+    ALGORITHM :
+
+        1.  Create an extra space dp, DP array to store the sub-problems.
+        2.  Tackle some basic cases, if the length of the array is 0, print 0, if the length of
+            the array is 1, print the first element, if the length of the array is 2, print maximum
+            of two elements.
+        3.  Update dp[0] as array[0] and dp[1] as maximum of array[0] and array[1]
+        4.  Traverse the array from the second element (2nd index) to the end of array.
+        5.  For every index, update dp[i] as maximum of dp[i-2] + array[i] and dp[i-1], this step
+            defines the two cases, if an element is selected then the previous element cannot be
+            selected and if an element is not selected then the previous element can be selected.
+        6.  Print the value dp[n-1]
+
+
+    Complexity Analysis:
+
+        Time Complexity: O(n)     .
+            Only one traversal of original array is needed. So the time complexity is O(n)
+
+        Space Complexity: O(n)     .
+            An array is required of size n, so space complexity is O(n).

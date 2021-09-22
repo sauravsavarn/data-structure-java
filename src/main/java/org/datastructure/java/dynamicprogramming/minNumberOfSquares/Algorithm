@@ -1,0 +1,32 @@
+Minimum Number Of Squares
+
+IDEA :
+     For an input number n, find all possible squares till i*i < n ; such that condition is i=1 to i*i <n
+     Base case here will be n==0 , i.e. if n==0 return 0 as say for number 25.
+
+                                For input number n=25, finding minimum square
+                               /    /   \      \        \
+                              /    /     \      \        \
+                        25-1^2  25-2^2  25-3^2 25-4^2   25-5^2 (here 25 - 5^2 == 0, which is the
+                      (here    (here    (here  (here    (here                       the base case
+                       i=1)     i=2)     i=3)   i=4)      i=5)
+
+
+                           Similarly for n==1, 1 - 1^2 == 0, which is also the base case.
+
+
+     NOTE: as per min_number_of_squares.jpeg, for number n=25, left most branch will have all the
+           unique elements, which will come as occurrence in other branch. Hence in
+           DynamicProgramming we can reuse the value if already find out.
+
+
+Time Complexity: (Time Complexity of Recursive Dynamic Programming Solution)
+    Since number of unique calls is equal to n.
+    & for each call, you are running a loop as
+                    i^2 = n
+                   => i = √n
+          thus, for n calls Time Complexity = n * √n (as for each call you are taking √n time)
+          Thus time Complexity = O(n√n)
+                                 thus here n represents number of unique call
+                                       and √n is the time each call take
+
