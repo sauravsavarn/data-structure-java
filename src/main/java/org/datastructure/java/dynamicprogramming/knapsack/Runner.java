@@ -72,6 +72,7 @@ public class Runner {
         int maxWeight = input.getMaxWeight();
 
 
-        System.out.println(Solution.knapsack(weights, values, n, maxWeight));
+        //System.out.println(Solution1.knapsack(weights, values, n, maxWeight));
+        System.out.println(Solution2.knapsack(weights, values, n, maxWeight));
     }
 }

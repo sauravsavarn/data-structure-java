@@ -1,0 +1,22 @@
+Maximum Square Matrix With All Zeros
+
+IDEA :
+     Let the given binary matrix be M[R][C]. The idea of the algorithm is to construct an
+     auxiliary size matrix S[][] in which each entry S[i][j] represents size of the square
+     sub-matrix is either 0 (if M[i][j] value at that position is 1)
+     or [ 1 + Min( S[i-i][j-1], S[i][j-1], S[i-1][j] ) ].
+
+    ALGORITHM :
+        1) Construct a sum matrix S[R][C] for the given M[R][C].
+             a)    Copy first row and first columns as it is from M[][] to S[][], with the condition
+                   that if M[i][j] is 1 then S[i][j] will be 0 otherwise 1.
+             b)    For other entries, use following expressions to construct S[][]
+                 If M[i][j] is 1 then
+                    S[i][j] = 0
+                 Else
+                    S[i][j] = 1 + min(S[i][j-1], S[i-1][j], S[i-1][j-1])
+        2) Find the maximum entry in S[R][C]
+        3) Return this maximum value
+
+
+        REFER : max_square_matrix_with_all_0s.jpeg for working and how this algo applies
