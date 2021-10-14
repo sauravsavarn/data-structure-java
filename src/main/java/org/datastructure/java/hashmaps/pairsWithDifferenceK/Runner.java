@@ -19,9 +19,7 @@ public class Runner {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         int k = Integer.parseInt(br.readLine());
-        //System.out.println(Solution1.getPairsWithDifferenceK(arr, k));
-        //System.out.println(Solution2.getPairsWithDifferenceK(arr, k));
-        System.out.println(Solution3.getPairsWithDifferenceK(arr, k));
+        System.out.println(Solution.getPairsWithDifferenceK(arr, k));
     }
 
 }
