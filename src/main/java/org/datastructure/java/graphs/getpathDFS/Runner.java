@@ -30,7 +30,8 @@ public class Runner {
         int vertexTo = scanner.nextInt();
         /////
         //Solution1.dfsTraversal(adjMatrix, n, e, vertexFrom, vertexTo);
-        Solution2.dfsTraversal(adjMatrix, n, e, vertexFrom, vertexTo);
+        //Solution2.dfsTraversal(adjMatrix, n, e, vertexFrom, vertexTo);
+        Solution3.dfsTraversal(adjMatrix, n, e, vertexFrom, vertexTo);
     }
 
 }

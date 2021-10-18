@@ -14,8 +14,8 @@ public class Solution {
          * Return output and don't print it.
          * Taking input and printing output is handled automatically.
          */
-        int vertices = edges.length;
-        int totalEdges = n;
+        int vertices = n;
+        int totalEdges = edges.length;
 
         return countConnected(edges, vertices, totalEdges);
     }
@@ -27,7 +27,7 @@ public class Solution {
 
         int countConnectedIslands = 0;
         int vertex = vertices - 1;//////Initially pick the last Vertex.
-        boolean[] traversedVertex = new boolean[adjMatrix.length];
+        boolean[] traversedVertex = new boolean[vertices];//adjMatrix.length];
         while (true) {
             boolean statusAllVerticesVisited = false;
             queue.add(vertex);
@@ -44,7 +44,7 @@ public class Solution {
 
             /////now loop and check in traversed or visited vertex array for any cell having value as 'FALSE'
             //if (isConnected)
-            for (int i = traversedVertex.length-1; i >= 0; i--) {
+            for (int i = traversedVertex.length - 1; i >= 0; i--) {
                 if (traversedVertex[i] == false) {
                     vertex = i; /////this time add this un-visited vertex to the queue.
                     break;
@@ -67,10 +67,10 @@ public class Solution {
         while (!queue.isEmpty()) {
             int currentVertex = (int) queue.poll();
 
-            if (vertexTo == currentVertex) {
+           /* if (vertexTo == currentVertex) {
                 isGraphConnected = true;
                 return true; //////this graph is connected
-            }
+            }*/
 
             for (int i = adjMatrix.length - 1; i >= 0; i--) {
                 if (adjMatrix[currentVertex][i] == 1 && !traversedVertex[i]) {
